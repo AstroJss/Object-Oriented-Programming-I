@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int sizeMatrix, sum{ 0 };
+
+	cout << "Please provide the number of rows/columns of your square matrix: \n";
+	cin >> sizeMatrix;
+
+	//declaring matrix Cstyle
+	int matrix[sizeMatrix][sizeMatrix];
+
+
+	//fill up the array
+	for (int i{ 0 }; i < sizeMatrix; i++)
+	{
+		for (int j{ 0 }; j < sizeMatrix; j++)
+		{
+			cout << "\nPlease enter the entry \n" << '[' << i << "] " << '[' << j << ']' << endl;
+			cin >> matrix[i][j];
+			cout << endl;
+		}
+	}
+
+	cout << endl << endl;
+
+	// trace and antitrace
+
+	for (int i{ 0 }; i < sizeMatrix; i++)
+	{
+		for (int j{ 0 }; j < sizeMatrix; j++)
+		{
+			if ((i == j) || (i + j == sizeMatrix - 1))
+			sum += matrix[i][j];
+		}
+	}
+
+
+
+
+	//print the sum
+	cout << "The sum of the elements of the two diagonals is :\n"
+		<< sum;
+
+
+	return 0;
+}
+		
