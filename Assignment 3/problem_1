@@ -1,0 +1,149 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+//Function Prototypes:
+void highest(int array[], int N);
+void lowest(int array[], int N);
+void average(int array[], int N);
+void median(int array[], int N);
+void A_grades(int array[], int N);
+void B_grades(int array[], int N);
+void C_grades(int array[], int N);
+void D_grades(int array[], int N);
+void F_grades(int array[], int N);
+
+int main(void)
+{
+	int N;
+	cout<<"Enter the number of students: ";
+	cin>>N;
+
+	int array[N];
+	cout<<"Enter the grades corresponding to the number of students: ";
+	for(int i=0; i<N; i++)
+	{
+		cin>>array[i];  //store the grades in the array
+	}
+	//Functions for each part of the question:
+	cout<<"Four highest grades are: ";
+	highest(array, N);
+	cout<<"Four lowest grades are: ";
+	lowest(array, N);
+    average(array, N);
+	median(array, N);
+	A_grades(array, N);
+	B_grades(array, N);
+	C_grades(array, N);
+	D_grades(array, N);
+	F_grades(array, N);
+}
+
+void highest(int array[], int N)
+{
+    for(int i=0; i<N; i++)
+    	sort(array, array+N);  //sort the grades in ascending order
+
+    for(int i=N-4; i<N; i++)
+        cout<<" "<<array[i];   //print the last four gardes
+    cout<<endl;
+}
+
+void lowest(int array[], int N)
+{
+    for(int i=0; i<N; i++)
+    	sort(array, array+N);   //sort the grades in ascending order
+
+    for(int i=0; i<4; i++)
+        cout<<" "<<array[i];    //print the first four grades
+    cout<<endl;
+}
+
+void average(int array[], int N)
+{
+    int sum=0;;
+    for(int i=0; i<N; i++)
+    {
+    	sum+=array[i];    //loop for the summation of grades
+    }
+    cout<<"The average of the grades is: "<<(double)sum/N<<endl;    //calculate and print the average
+}
+
+void median(int array[], int N)
+{
+	for(int i=0; i<N; i++)
+	    sort(array, array+N);    //sort the grades in the array
+
+    //Median calculation for even or odd number of grades
+	if(N%2 != 0)
+		cout<<"The median of the grades is: "<<array[(N-1)/2]<<endl;
+	else
+		cout<<"The median of the grades is: "<<(array[N/2 -1] + array[N/2])/2.0<<endl;
+}
+
+void A_grades(int array[], int N)    //counts the number of grades gretaer than or equal to 90
+{
+	int count = 0;
+	for(int i=0; i<N; i++)
+	{
+		if(array[i]>=90)
+		    count++;
+		else
+			continue;
+	}
+	cout<<"Number of A grades(greater than or equal to 90): "<<count<<endl;
+}
+
+void B_grades(int array[], int N)    //counts the number of grades between 80 and 90
+{
+	int count = 0;
+	for(int i=0; i<N; i++)
+	{
+		if(array[i]>=80 && array[i]<90)
+		    count++;
+		else
+			continue;
+	}
+	cout<<"Number of B grades(grades between 80(inclusive) and 90): "<<count<<endl;
+}
+
+void C_grades(int array[], int N)    //counts the number of grades between 65 and 80
+{
+	int count = 0;
+	for(int i=0; i<N; i++)
+	{
+		if(array[i]>=65 && array[i]<80)
+		    count++;
+		else
+			continue;
+	}
+	cout<<"Number of C grades(grades between 65(inclusive) and 80): "<<count<<endl;
+}
+
+void D_grades(int array[], int N)    //counts the number of grades between 50 and 65
+{
+	int count = 0;
+	for(int i=0; i<N; i++)
+	{
+		if(array[i]>=50 && array[i]<65)
+		    count++;
+		else
+			continue;
+	}
+	cout<<"Number of D grades(grades between 50(inclusive) and 65): "<<count<<endl;
+}
+
+void F_grades(int array[], int N)    //counts the number of grades less than 50
+{
+	int count = 0;
+	for(int i=0; i<N; i++)
+	{
+		if(array[i]<50)
+		    count++;
+		else
+			continue;
+	}
+	cout<<"Number of F grades(grades less than 50): "<<count<<endl;
+}
+
+
