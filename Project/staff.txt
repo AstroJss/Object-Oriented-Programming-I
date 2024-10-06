@@ -1,0 +1,7 @@
+     5
+     John Smith 241001 2015-06-12 A 55000
+     Lisa Johnson 241002 2018-03-21 B 62000
+     Michael Brown 241003 2012-09-30 C 75000
+     Emily Davis 241004 2020-01-15 A 48000
+     David Wilson 241005 2010-11-02 E  69000
+     
