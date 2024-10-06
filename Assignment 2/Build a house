@@ -1,0 +1,80 @@
+#include<iostream>
+using namespace std;
+
+
+int main(void)
+{
+	cout<<"----------------------------------------------------------------\n";
+	cout<<"                  HOUSE DRAWING PROGRAM                         \n";
+	cout<<"----------------------------------------------------------------\n";
+
+	string name, user_reply, yes;
+	int height, width;
+
+	cout<<"Please enter your name: ";
+	cin>>name;
+
+	cout<<"Well, "<<name<<" welcome to the House Drawing Program.\n";
+
+    do{
+	cout<<"Do you want me to draw a simple house for you? (yes/no): ";
+	cin>>user_reply;
+
+	if(user_reply == "yes")
+	{
+		cout<<"Please enter height of the house you want me to draw: ";
+		cin>>height;
+
+
+        int attempts=0;
+		while(attempts<3){
+        cout<<"Please enter an even number for the width of the house (must be even number and bigger than 2): ";
+        cin>>width;
+
+        int rows1 = width/2;
+        if(width%2==0 && width>2)
+        {
+        	for(int i=0; i<rows1; ++i){
+        	for(int j=0; j<rows1-i-1; ++j)
+        		cout<<" ";
+        	for(int j=0; j<2*i+2; j++)
+        		cout<<"*";
+        	cout<<endl;
+        	}
+        	int rows2 = height-1;
+        	for(int i=0; i<rows2; ++i)
+        	{
+        		cout<<"|";
+        		for(int j=0; j<width-2; ++j)
+        			cout<<" ";
+        		cout<<"|"<<endl;
+        	}
+        	for(int i=0; i<width; i++)
+        		cout<<"-";
+        }
+
+        else
+        { attempts++;
+         if(attempts<3)
+         {
+        	cout<<"Please enter an even number for the width of the house (must be even number and bigger than 2): ";
+        	cin>>width;
+
+         }
+         else
+    	 cout<<"oops! Seems like you are having a problem entering an even number. Program terminated here.";
+        }}}
+
+
+
+	  else
+      cout<<"Hope you like your houses";
+
+    }while(user_reply!="yes");}
+
+
+
+
+
+
+
